@@ -49,7 +49,7 @@ function copy(array){
   return [...array];
 }    
 
-console.log('task 1', copy(originalFlavors));
+//console.log('task 1', copy(originalFlavors));
 
 
 
@@ -68,7 +68,7 @@ function is31Flavors(array){
  return array.length === 31;
 }
 
-console.log(is31Flavors(originalFlavors));
+//console.log(is31Flavors(originalFlavors));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -88,7 +88,7 @@ function addFlavor(array, flavor){
  return array
 }
 
-addFlavor(originalFlavors, 'mud')
+//addFlavor(originalFlavors, 'mud')
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
@@ -106,7 +106,7 @@ function removeLastFlavor(array){
  return array
 }
 
-removeLastFlavor(originalFlavors)
+//removeLastFlavor(originalFlavors)
 
 
 
@@ -125,7 +125,7 @@ function getFlavorByIndex(array, index){
   return array[index];
 }
 
-console.log(getFlavorByIndex(originalFlavors, 2))
+//console.log(getFlavorByIndex(originalFlavors, 2))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -197,10 +197,26 @@ Use the getAverageWordLength function below to do the following:
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-  /*code here*/
+function getAverageWordLength(array){
+  const wpi = [];
+
+  for (let i = 0; i < array.length; i++){
+    wpi[i] = 1;
+    for (let j = 0; j < array[i].length; j++){
+      if (array[i][j] === ' ') {
+        wpi[i] += 1;
+      }
+    }
+  }
+  let sum = 0;
+  for(let i = 0; i < wpi.length; i++) {
+    sum += wpi[i];
+  }
+
+  return Math.round(sum / wpi.length);
 }
 
+console.log(getAverageWordLength(originalFlavors));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors 
